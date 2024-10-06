@@ -2,6 +2,10 @@
   position: relative;
   block-size: 100vh;
 
+  &__logo {
+    margin-block-end: auto;
+  }
+
   &__title {
     font-weight: 800;
     font-size: 20rem;
@@ -13,6 +17,7 @@
     z-index: 4;
     top: 0;
     left: 0;
+    animation: comeIn .8s ease-out .2s backwards;
   }
 
   &__aside {
@@ -28,7 +33,7 @@
     align-items: center;
     gap: 5rem;
     padding-block-end: 5rem;
-    animation: slideToRight 1s ease backwards;
+    animation: slideToRight .8s ease 1s backwards;
   }
 
   &__date {
@@ -106,180 +111,162 @@
         visibility: visible;
       }
     }
+
+    &-map {
+      position: absolute;
+      z-index: 4;
+      top: 0;
+      right: 0;
+    
+      &.north {
+        .header__slider-map--place {
+          top: 24rem;
+          right: 54.2rem;
+        }
+      }
+  
+      &.south {
+        .header__slider-map--place {
+          top: 48.3rem;
+          right: 18.2rem;
+        }
+      }
+  
+      &.west {
+        .header__slider-map--place {
+          top: 33.4rem;
+          right: 33.3rem;
+        }
+      }
+  
+      &.east {
+        .header__slider-map--place {
+          top: 37.7rem;
+          right: 24.6rem;
+        }
+      }
+  
+      &--place {
+        position: absolute;
+        z-index: 4;
+        font-size: 1.6rem;
+        line-height: 1.9rem;
+        letter-spacing: .1rem;
+      }
+    }
   }
 
-  &__map {
-    position: absolute;
-    z-index: 4;
-    top: 0;
-    right: 0;
-  
-		&.north {
-        // animation: slideToBottom 1s ease backwards;
-
-			.header__map-place {
-				top: 24rem;
-				right: 54.2rem;
-			}
-		}
-		&.south {
-			.header__map-place {
-				top: 48.3rem;
-				right: 18.2rem;
-			}
-		}
-		&.west {
-			.header__map-place {
-				top: 33.4rem;
-				right: 33.3rem;
-			}
-		}
-		&.east {
-			.header__map-place {
-				top: 37.7rem;
-				right: 24.6rem;
-			}
-		}
-		&-place {
-			position: absolute;
-			z-index: 4;
-			font-size: 16px;
-			line-height: 19px;
-			letter-spacing: 1px;
-		}
-	}
-}
-
-.logo-small {
-	position: absolute;
-	top: 0;
-	left: 0;
-	inline-size: 10rem;
-	display: none;
-	z-index: 6;
-}
-
-.logo {
-  margin-block-end: auto;
-}
-
-.menu {
-  &__list {
-    display: flex;
-    flex-direction: column;
-    gap: 3rem;
-
-    a {
+  &__menu {
+    &-list {
       display: flex;
       flex-direction: column;
-      align-items: center;
-      gap: 1rem;
-
-      &:hover {
+      gap: 3rem;
+  
+      a {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+  
+        &:hover {
+          img {
+            filter: brightness(0.4);
+            transform: scale(1.1);
+          }
+  
+          span {
+            color: $colorAccent;
+            transform: translateX(.3rem);
+          }
+        }
+  
         img {
-          filter: brightness(0.4);
-          transform: scale(1.1);
+          transition: all .2s ease-in;
         }
-
+  
         span {
-          color: $colorAccent;
-          transform: translateX(.3rem);
+          font-size: 1.2rem;
+          line-height: 1.17;
+          font-weight: 500;
+          letter-spacing: .3rem;
+  
+          transition: all .2s ease-in;
         }
-      }
-
-      img {
-        transition: all .2s ease-in;
-      }
-
-      span {
-        font-size: 1.2rem;
-        line-height: 1.17;
-        font-weight: 500;
-        letter-spacing: .3rem;
-
-        transition: all .2s ease-in;
       }
     }
   }
-}
 
-.slider-item {
-  &__info {
+  &__slider {
+    &-info {
+      position: absolute;
+      right: 8rem;
+      bottom: 11.6rem;
+      text-align: right;
+      text-transform: uppercase;
+      animation: slideToLeft 1s ease backwards;
+  
+      &--title {
+        font-size: 8rem;
+        line-height: 1.075;
+        font-weight: 800;
+        margin-block-end: 4.8rem;
+      }
+  
+      &--suptitle {
+        margin-block-end: .5rem;
+      }
+  
+      &--suptext {
+        margin-block-end: .8rem;
+      }
+  
+      &--text {
+        font-size: 4rem;
+        line-height: 1.15;
+        font-weight: 800;
+        margin-block-end: 2rem;
+      }
+    }
+  }
+
+  &__dots {
     position: absolute;
     right: 8rem;
-    bottom: 11.6rem;
-    text-align: right;
-    text-transform: uppercase;
-    animation: slideToLeft 1s ease backwards;
+    bottom: 3.6rem;
+    inline-size: 100%;
+    display: flex;
+    justify-content: end;
+    gap: 4rem;
+    animation: slideToTop 1.5s ease backwards;
 
-    &-title {
-      font-size: 8rem;
-      line-height: 1.075;
-      font-weight: 800;
-      margin-block-end: 4.8rem;
-    }
-
-    &-suptitle {
-      margin-block-end: .5rem;
-    }
-
-    &-suptext {
-      margin-block-end: .8rem;
-    }
-
-    &-text {
-      font-size: 4rem;
-      line-height: 1.15;
-      font-weight: 800;
-      margin-block-end: 2rem;
-    }
-
-    &-link {
-      img {
-        display: inline-block;
+    &-item {
+      &.active {
+        & .header__dots-box {
+          border-top: .4rem solid $colorAccent;
+        }
       }
+    }
+
+    &-number {
+      font-size: 2.4rem;
+      line-height: 1.42;
+      font-weight: 800;
+    }
+  
+    &-name {
+      font-weight: 300;
+      line-height: .8;
+    }
+  
+    &-box {
+      inline-size: 20rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      block-size: 2.8rem;
+      border-top: .4rem solid $colorWhite;
+      padding-block-start: 1rem;
+      transition: all .3s;
     }
   }
 }
-
-.slider-dots {
-	position: absolute;
-	right: 8rem;
-	bottom: 3.6rem;
-	inline-size: 100%;
-  display: flex;
-  justify-content: end;
-  gap: 4rem;
-  animation: slideToTop 1.5s ease backwards;
-
-  &__item {
-    &.active {
-      & .dots-box {
-        border-top: .4rem solid $colorAccent;
-      }
-    }
-  }
-}
-
-.dots-box {
-	inline-size: 20rem;
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	block-size: 2.8rem;
-	border-top: .4rem solid $colorWhite;
-	padding-block-start: 1rem;
-  transition: all .3s;
-
-	&__number {
-		font-size: 2.4rem;
-		line-height: 1.42;
-		font-weight: 800;
-	}
-
-	&__name {
-		font-weight: 300;
-		line-height: .8;
-	}
-}
-

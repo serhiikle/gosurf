@@ -1,0 +1,24 @@
+.animate-road {
+	stroke-dashoffset: 680;
+	stroke-dasharray: 680;
+	animation: animateStrokeSVG 3.5s infinite;
+}
+
+.animate-svg { animation: animateStrokeSVG .7s ease backwards; }
+.show-svg { animation: showElement 2s ease backwards; }
+.drop-down { animation: dropDownBounce .5s ease-out backwards; }
+
+.drop-delay--1 { animation-delay: 1s; }
+.drop-delay--2 { animation-delay: 1.1s; }
+.drop-delay--3 { animation-delay: 1.2s; }
+.drop-delay--4 { animation-delay: 1.3s; }
+.drop-delay--5 { animation-delay: 1.4s; }
+.drop-delay--6 { animation-delay: 1.5s; }
+
+.anim--1 { animation-delay: 1s; }
+.anim--2 { animation-delay: 1.5s; }
+.anim--3 { animation-delay: 2s; }
+.anim--4 { animation-delay: 2.5s; }
+.anim--5 { animation-delay: 3s; }
+.anim--6 { animation-delay: 3.5s; }
+.anim--7 { animation-delay: 5.5s; }

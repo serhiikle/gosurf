@@ -29,42 +29,45 @@ getDate('.year');
 
 /* Slider */
 
-const sliderBtnPrev = document.querySelector('.slider-arrow__prev');
-const sliderBtnNext = document.querySelector('.slider-arrow__next');
-const headerSlider = document.querySelector('.header__slider');
-const sliderDots = document.querySelector('.slider-dots');
-const sliderDotsItems = sliderDots.querySelectorAll('.slider-dots__item');
-
-let counterDots = 0;
-
-function showSlider(direction) {
-  const headerSliderItems = headerSlider.querySelectorAll('.header__slider-item');
-  if (direction === 'next') headerSlider.appendChild(headerSliderItems[0]);
-  if (direction === 'prev') headerSlider.prepend(headerSliderItems[headerSliderItems.length - 1]);
-}
-
-sliderDotsItems[0].classList.add('active');
-
-function dotActive() {
-  sliderDotsItems.forEach((dot) => {
-    dot.classList.remove('active');
+function sliderInit(container) {
+  const sliderContainer = document.querySelector(container);
+  const slider = sliderContainer.querySelector('.slider');
+  const sliderBtnPrev = sliderContainer.querySelector('.slider-arrow__prev');
+  const sliderBtnNext = sliderContainer.querySelector('.slider-arrow__next');
+  const sliderDots = sliderContainer.querySelector('.slider-dots');
+  const sliderDotsItems = sliderContainer.querySelectorAll('.dots-item');
+  
+  let counterDots = 0;
+  
+  function showSlider(direction) {
+    const sliderItems = slider.querySelectorAll('.slider-item');
+    if (direction === 'next') slider.appendChild(sliderItems[0]);
+    if (direction === 'prev') slider.prepend(sliderItems[sliderItems.length - 1]);
+  }
+  
+  sliderDotsItems[0].classList.add('active');
+  
+  function dotActive() {
+    sliderDotsItems.forEach((dot) => {
+      dot.classList.remove('active');
+    });
+    sliderDotsItems[counterDots].classList.add('active');
+  }
+  
+  sliderBtnNext.addEventListener('click', () => {
+    showSlider('next');
+    counterDots < 3 ? counterDots++ : counterDots = 0;
+    dotActive();
   });
-  sliderDotsItems[counterDots].classList.add('active');
-}
+  
+  sliderBtnPrev.addEventListener('click', () => { 
+    showSlider('prev');
+    counterDots <= 0 ? counterDots = 3 : counterDots--;
+    dotActive();
+  });
+};
 
-sliderBtnNext.addEventListener('click', () => {
-  showSlider('next');
-  counterDots < 3 ? counterDots++ : counterDots = 0;
-  dotActive();
-});
-
-sliderBtnPrev.addEventListener('click', () => { 
-  showSlider('prev');
-  counterDots <= 0 ? counterDots = 3 : counterDots--;
-  dotActive();
-});
-
-
+sliderInit('.header');
 
 /* Mobile menu */
 
