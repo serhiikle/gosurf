@@ -5,11 +5,7 @@ html {
   font-size: 62.5%;
 }
 
-*,
-*::before,
-*::after {
-  box-sizing: inherit;
-}
+*, *::before, *::after { box-sizing: inherit; }
 
 body {
   background-color: $colorMainBg;
@@ -21,25 +17,8 @@ body {
 	overflow-x: hidden;
 }
 
-main {
-  overflow-x: clip;
-}
-
-a {
-  text-decoration: none;
-  color: inherit;
-}
-
-img {
-  vertical-align: top;
-}
-
-section {
-	text-transform: uppercase;
-	font-weight: 800;
-}
-
-.container {
-  max-width: 192rem;
-  margin-inline: auto;
-}
+main { overflow-x: clip; }
+a { text-decoration: none; color: inherit; }
+img { vertical-align: top; }
+section { text-transform: uppercase; font-weight: 800; }
+.container { max-width: 192rem; margin-inline: auto; }

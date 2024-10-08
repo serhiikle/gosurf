@@ -4,6 +4,7 @@
 
   &__logo {
     margin-block-end: auto;
+    animation: slideToRight .5s ease-out 2.9s backwards;
   }
 
   &__title {
@@ -41,6 +42,7 @@
     font-size: 1.6rem;
     line-height: 1.19;
     letter-spacing: .14rem;
+    animation: dropDownBounce .4s ease-in 2s backwards;
 
     .num {
       display: block;
@@ -58,6 +60,7 @@
     position: relative;
     display: inline-block;
     padding-inline-start: 2rem;
+    animation: dropDownBounce .4s ease-in 1.9s backwards;
 
     &::before {
       content: "";
@@ -76,7 +79,7 @@
     z-index: 4;
     bottom: 5.5rem;
     left: 20rem;
-    animation: arrowBounce 1s ease forwards infinite;
+    animation: bounce 1s ease 4s backwards infinite;
   }
 
   &__slider {
@@ -118,33 +121,10 @@
       top: 0;
       right: 0;
     
-      &.north {
-        .header__slider-map--place {
-          top: 24rem;
-          right: 54.2rem;
-        }
-      }
-  
-      &.south {
-        .header__slider-map--place {
-          top: 48.3rem;
-          right: 18.2rem;
-        }
-      }
-  
-      &.west {
-        .header__slider-map--place {
-          top: 33.4rem;
-          right: 33.3rem;
-        }
-      }
-  
-      &.east {
-        .header__slider-map--place {
-          top: 37.7rem;
-          right: 24.6rem;
-        }
-      }
+      &.north { .header__slider-map--place { top: 24rem; right: 54.2rem; }}
+      &.south { .header__slider-map--place { top: 48.3rem; right: 18.2rem; }}
+      &.west { .header__slider-map--place { top: 33.4rem; right: 33.3rem; }}
+      &.east { .header__slider-map--place { top: 37.7rem; right: 24.6rem; }}
   
       &--place {
         position: absolute;
@@ -161,6 +141,13 @@
       display: flex;
       flex-direction: column;
       gap: 3rem;
+
+      li {
+        &:nth-child(1) { animation: dropDownBounce .4s ease-in 2.4s backwards; }
+        &:nth-child(2) { animation: dropDownBounce .4s ease-in 2.3s backwards; }
+        &:nth-child(3) { animation: dropDownBounce .4s ease-in 2.2s backwards; }
+        &:nth-child(4) { animation: dropDownBounce .4s ease-in 2.1s backwards; }
+      }
   
       a {
         display: flex;
@@ -169,27 +156,17 @@
         gap: 1rem;
   
         &:hover {
-          img {
-            filter: brightness(0.4);
-            transform: scale(1.1);
-          }
-  
-          span {
-            color: $colorAccent;
-            transform: translateX(.3rem);
-          }
+          img { filter: brightness(0.4); transform: scale(1.1); }
+          span { color: $colorAccent; transform: translateX(.3rem); }
         }
   
-        img {
-          transition: all .2s ease-in;
-        }
+        img { transition: all .2s ease-in; }
   
         span {
           font-size: 1.2rem;
           line-height: 1.17;
           font-weight: 500;
           letter-spacing: .3rem;
-  
           transition: all .2s ease-in;
         }
       }
@@ -203,21 +180,23 @@
       bottom: 11.6rem;
       text-align: right;
       text-transform: uppercase;
-      animation: slideToLeft 1s ease backwards;
   
       &--title {
         font-size: 8rem;
         line-height: 1.075;
         font-weight: 800;
         margin-block-end: 4.8rem;
+        animation: slideToLeft .8s ease-out 2.8s backwards;
       }
   
       &--suptitle {
         margin-block-end: .5rem;
+        animation: comeOutSlideToLeft .8s ease-out 3.4s backwards;
       }
   
       &--suptext {
         margin-block-end: .8rem;
+        animation: comeOutSlideToLeft .8s ease-out 2.2s backwards;
       }
   
       &--text {
@@ -225,6 +204,7 @@
         line-height: 1.15;
         font-weight: 800;
         margin-block-end: 2rem;
+        animation: slideToLeft .8s ease-out 1.6s backwards;
       }
     }
   }
@@ -237,14 +217,14 @@
     display: flex;
     justify-content: end;
     gap: 4rem;
-    animation: slideToTop 1.5s ease backwards;
 
     &-item {
-      &.active {
-        & .header__dots-box {
-          border-top: .4rem solid $colorAccent;
-        }
-      }
+      &:nth-child(1) { animation: slideToTop .8s ease-out .5s backwards; }
+      &:nth-child(2) { animation: slideToTop .8s ease-out .8s backwards; }
+      &:nth-child(3) { animation: slideToTop .8s ease-out 1.1s backwards; }
+      &:nth-child(4) { animation: slideToTop .8s ease-out 1.4s backwards; }
+
+      &.active { & .header__dots-box { border-top: .4rem solid $colorAccent; }}
     }
 
     &-number {

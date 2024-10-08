@@ -39,6 +39,7 @@
 	position: relative;
 	display: inline-block;
 	font-weight: 400;
+	animation: comeIn .8s ease-out .2s backwards;
 
 	&::before {
 		content: "";
@@ -48,10 +49,99 @@
 		background-color: $colorWhite;
 		left: 0;
 		top: 50%;
+		animation: slideToRight .8s ease-out 1.6s backwards;
 	}
 }
 
+.title {
+  position: relative;
+  display: inline-block;
 
+	span {
+		font-size: 20rem;
+		line-height: .78;
+		color: rgba($colorWhite, 0.02);
+		display: inline-block;
+    margin-inline-start: -5rem;
+		animation: comeIn .8s ease-out .2s backwards;
+	}
+
+	h2 {
+		font-size: 8rem;
+		line-height: 1.125;
+		position: absolute;
+		top: -3.2rem;
+		right: -1.5rem;
+		color: $colorWhite;
+		animation: slideToLeft .8s ease-out .8s backwards;
+
+		&::after {
+			content: "";
+			position: absolute;
+			top: 0;
+			right: 0;
+			height: .1rem;
+			width: 8rem;
+			background-color: $colorAccent;
+			animation: slideToRight .8s ease-out 1.6s backwards;
+		}
+	}
+}
+
+.subtitle {
+	display: inline-block;
+	text-align: right;
+	margin-block-start: -8.6rem;
+  padding-inline-end: 5rem;
+
+	&__head {
+		font-weight: 800;
+		font-size: 4rem;
+		padding-inline-end: 1rem;
+		animation: slideToTop .8s ease-out .8s backwards;
+
+		span { font-weight: 100; }
+	}
+}
+
+//================ Button component =====================
+
+.btn {
+	font-size: 4rem;
+	line-height: .9;
+	font-weight: 800;
+	outline: none;
+
+	span {
+		padding: 1.7rem 5.7rem 1.5rem 1.7rem;
+		background-color: $colorAccent;
+		display: inline-block;
+		margin-inline-start: 1.9rem;
+		position: relative;
+
+		&::before {
+			content: "";
+			position: absolute;
+			top: 50%;
+			block-size: .1rem;
+			inline-size: 2rem;
+			left: -1rem;
+			background-color: $colorWhite;
+		}
+
+		&::after {
+			content: "";
+			position: absolute;
+			top: 50%;
+			background-image: url(../images/arrow-right.svg);
+			background-repeat: no-repeat;
+			transform: translateY(-50%);
+			inline-size: 2.5rem;
+			block-size: 2.1rem;
+			right: 1.7rem;
+		}
+	}
+}
 
 //================ Mobile button component =====================
 

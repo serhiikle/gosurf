@@ -1,0 +1,299 @@
+.surf {
+  padding: 14.6rem 0 27.7rem;
+  position: relative;
+  
+  &__subtitle {
+    text-align: right;
+    padding-block-end: 8rem;
+  }
+
+  &__map {
+    max-inline-size: 120rem;
+    min-block-size: 63.5rem;
+    background-image: url(../images/surf-map.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-inline: auto;
+    position: relative;
+    animation: slideToTop 1.2s ease .5s backwards;
+
+    &-coordinates {
+      position: absolute;
+      top: 50%;
+      font-size: 1.8rem;
+      font-weight: 300;
+      line-height: 1.22;
+      letter-spacing: 0.9rem;
+      color: rgba($colorWhite, .4);
+      transform: translateY(-50%) rotate(-180deg);
+      right: -2%;
+      writing-mode: tb-rl;
+      height: 50rem;
+      animation: makeVisible 2s ease 2.7s backwards;
+    }
+  }
+
+  &__dots {
+    position: absolute;
+
+    &-container {
+      min-block-size: 63.5rem;
+      position: relative;
+    }
+  }
+
+  &__circle {
+    inline-size: 2.3rem;
+    block-size: 2.3rem;
+    background-color: $colorAccent;
+    border-radius: 50%;
+    cursor: pointer;
+    position: relative;
+    box-shadow: 0 0 3.5rem rgba($colorAccent, .84);
+  }
+
+  &__content {
+    position: absolute;
+    bottom: 3.5rem;
+    transform: translateX(-50%);
+    display: none;
+    inline-size: 28.5rem;
+    padding: 3.2rem 2.8rem;
+    border-radius: .6rem;
+    background-color: rgba($colorSecondaryBg, 0.7);
+
+    &::after {
+      content: "";
+      position: absolute;
+      border-bottom: solid 2rem $colorAccent;
+      border-left: solid 1.1rem transparent;
+      border-right: solid 1.1rem transparent;
+      bottom: -2rem;
+      left: 14.3rem;
+      inline-size: 0;
+      block-size: 0;
+    }
+
+    &-row {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    &-head {
+      margin-block-end: 3.2rem;
+    }
+
+    &-title {
+      font-size: 1.8rem;
+      font-weight: 800;
+      line-height: 1.44;
+      padding-block-end: .8rem;
+      margin-block-end: .8rem;
+      position: relative;
+
+      &::after {
+        content: "";
+        position: absolute;
+        inline-size: 8rem;
+        block-size: .1rem;
+        bottom: 0;
+        left: 0;
+        background-color: $colorAccent;
+      }
+    }
+
+    &-subtitle {
+      text-transform: capitalize;
+      line-height: 1.19;
+      font-weight: 400;
+    }
+
+    &-item {
+      text-align: center;
+
+      img { margin: 0 auto .7rem; }
+    }
+
+    &-number {
+      font-weight: 800;
+      line-height: 1.4375;
+    }
+
+    &-name {
+      font-weight: 300;
+      font-size: 1rem;
+      line-height: 1.2;
+    }
+  }
+
+  &__slider {
+    position: relative;
+    padding-block-start: 11rem;
+
+    &-container {
+      display: flex;
+      align-items: center;
+      transition: all .4s ease;
+      padding-inline-start: 35%;
+
+      & > .surf__box {
+        &:nth-child(4n + 1) { margin-block-start: 3.2rem; }
+        &:nth-child(4n + 3) { margin-block-start: 8.7rem; }
+      }
+    }
+  }
+
+  &__box {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    &.active {
+      .surf__box-btn { display: block; }
+      .surf__box-inner { background-color: rgba($colorSliderBg, 0.3); }
+    }
+
+    &-inner {
+      min-block-size: 75rem;
+      inline-size: 39rem;
+      background-color: rgba($colorSliderBg, 0.85);
+      position: relative;
+      block-size: 100%;
+      transition: background-color 0.3s;
+      cursor: pointer;
+    }
+
+    &-title {
+      font-size: 3rem;
+      line-height: 1.2;
+      font-weight: 800;
+      padding: 7.1rem 0 0 4rem;
+      inline-size: 14rem;
+    }
+
+    &-location {
+      font-size: 1.8rem;
+      line-height: 1.22;
+      letter-spacing: .8rem;
+      transform: rotate(-90deg);
+      position: absolute;
+      left: 4rem;
+      bottom: 8rem;
+      inline-size: 0;
+      block-size: 0;
+      white-space: nowrap;
+      font-weight: 400;
+
+      span { font-weight: 100; }
+    }
+
+    &-btn {
+      bottom: 0;
+      position: absolute;
+      text-align: center;
+      left: 0;
+      right: 0;
+      display: none;
+    }
+  } 
+}
+
+.surf__dots--hawaii {
+  top: 53%;
+  left: 0;
+  animation: fadeIn .8s ease 2.5s backwards;
+
+  .surf__content {
+    left: 14.5rem;
+    bottom: -23.6rem;
+
+    &::after {
+      border-bottom: solid 2rem transparent;
+      border-top: solid 2rem $colorAccent;
+      top: -2rem;
+      left: -.2rem;
+    }
+  }
+}
+
+.surf__dots--california {
+  top: 44%;
+  left: 11%;
+  animation: fadeIn .8s ease 2.4s backwards;
+}
+
+.surf__dots--dominikana {
+  top: 50%;
+  left: 27%;
+  animation: fadeIn .8s ease 2.3s backwards;
+}
+
+.surf__dots--brasil {
+  top: 78%;
+  left: 34%;
+  animation: fadeIn .8s ease 2.2s backwards;
+
+  .surf__content {
+    left: 12.5rem;
+    bottom: 3.5rem;
+
+    &::after { bottom: -2rem; left: 1.8rem; }
+  }
+}
+
+.surf__dots--france {
+  top: 34%;
+  left: 45%;
+  animation: fadeIn .8s ease 2.1s backwards;
+
+  .surf__content {
+    left: 17.7rem;
+    bottom: -110rem;
+
+    &::after {
+      border-top: solid 1.1rem transparent;
+      border-bottom: solid 1.1rem transparent;
+      border-left: solid 2rem $colorAccent;
+      border-right: solid 2rem transparent;
+      top: 9.1rem;
+      left: -2rem;
+    }
+  }
+}
+
+.surf__dots--africa {
+  top: 86%;
+  left: 53%;
+  animation: fadeIn .8s ease 2s backwards;
+}
+
+.surf__dots--philippines {
+  top: 61%;
+  right: 31%;
+  animation: fadeIn .8s ease 1.9s backwards;
+}
+
+.surf__dots--australia {
+  bottom: 18%;
+  right: 8%;
+  animation: fadeIn .8s ease 1.8s backwards;
+
+  .surf__content {
+    left: -3.5rem;
+
+    &::after { left: 17.8rem; }
+  }
+}
+
+.dots-item {
+  &.active {
+    .surf__content { display: block; }
+  }
+}
+
+.surf__map-pin {
+  position: absolute;
+  right: 0;
+  top: 7%;
+  animation: slideToLeft .8s ease 2s backwards;
+}
