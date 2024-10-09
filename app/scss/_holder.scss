@@ -1,0 +1,132 @@
+.holder {
+  margin-block-end: 31rem;
+  position: relative;
+
+  &.travel { min-block-size: 164rem; }
+
+  &__slider {
+    min-block-size: 132.4rem;
+    inline-size: 100%;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    position: relative;
+
+    &-item {
+      position: absolute;
+      opacity: 0;
+      transform: scale(2);
+      visibility: hidden;
+      position: absolute;
+      block-size: 100%;
+      inline-size: 100%;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      transition: all 1s;
+
+      &:nth-child(1) {
+        opacity: 1;
+        transform: scale(1);
+        visibility: visible;
+      }
+    }
+  }
+
+  &__item {
+    background-repeat: no-repeat;
+    background-position: top left;
+    min-block-size: 78rem;
+
+    &-subtitle {
+      text-align: right;
+      padding-inline-end: 8rem;
+      padding-block-start: 13.2rem;
+    }
+
+    &-descr {
+      margin-block-start: -26rem;
+      min-block-size: 32rem;
+      background-repeat: no-repeat;
+      background-position: right center;
+      padding-block-start: 18rem;
+      margin-block-end: 15rem;
+      position: relative;
+
+      & > img {
+        position: absolute;
+        right: 0;
+        top: 0;
+
+        &.animate { animation: slideToLeft .8s ease-out 2.2s backwards; }
+      }
+    }
+
+    &-info {
+      display: flex;
+      justify-content: space-around;
+    }
+  }
+
+  &__path {
+    min-block-size: 20rem;
+    margin-block-end: 6.6rem;
+    position: relative;
+
+    &.animate {
+      &:nth-child(1) { animation: slideToTop .8s ease 3s backwards; }
+      &:nth-child(2) { animation: slideToTop .8s ease 3.1s backwards; }
+      &:nth-child(3) { animation: slideToTop .8s ease 3.2s backwards; }
+      &:nth-child(4) { animation: slideToTop .8s ease 3.4s backwards; }
+    }
+
+    &-subtitle {
+      position: absolute;
+      line-height: 1.22;
+      letter-spacing: .8rem;
+      opacity: 0.5;
+      transform: rotate(-90deg);
+      font-size: 1.8rem;
+      top: 9rem;
+      left: -9.7rem;
+      inline-size: 20rem;
+      block-size: 0;
+      white-space: nowrap;
+      text-align: right;
+    }
+
+    &-title {
+      font-size: 4rem;
+      line-height: .9;
+      font-weight: 800;
+      padding-inline-start: 4rem;
+      position: relative;
+
+      i {
+        font-style: inherit;
+        display: inline-block;
+        inline-size: 10rem;
+        text-align: right;
+      }
+
+      span {
+        font-size: 1.4rem;
+        line-height: 2.57;
+        text-align: right;
+        letter-spacing: .525;
+        text-transform: uppercase;
+        color: rgba($colorWhite, 0.75);
+        font-weight: 400;
+        margin-block-start: -1rem;
+        display: block;
+      }
+    }
+
+    &-btn {
+      text-align: center;
+      margin-inline-start: 2.5rem;
+      
+      &.animate { animation: slideToRight .8s ease 3.5s backwards; }
+    }
+  }
+}

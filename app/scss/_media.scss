@@ -1,58 +1,155 @@
 /* ==========================================================================
-========================       MEDIA 1366px      ============================
+====================       MEDIA 1536px x 910px      ========================
 ===========================================================================*/
 
-@media (max-width: 1366px) {
+@media (max-width: 96em) and (max-height: 56.875em) {
+
+  // HEADER
+  .header {
+    &__logo { inline-size: 10rem; }
+    &__logo img { inline-size: 100%; }
+    &__title { font-size: 15rem; }
+    &__date .num { font-size: 4.2rem; }
+    &__map.south &__map-place { top: 46.1rem; right: 29.3rem; }
+    &__slider-info--text { font-size: 3rem; margin-block-end: 0; }
+    &__slider-info--title { font-size: 6rem; margin-block-end: 1.8rem; }
+  }
+
+  // HEADLINE-LEFT
+  .headline-left { font-size: 1.6rem; line-height: 1; }
+
+  // SLIDER_ITEM
+  .slider-item {
+    &__info-title { font-size: 5rem; line-height: 1; margin-block-end: 2.5rem; }
+    &__info-text { font-size: 2.5rem; line-height: 1; margin-block-end: 1rem; }
+  }
+}
+
+/* ==========================================================================
+====================       MEDIA 1366px x 800px      ========================
+===========================================================================*/
+
+@media (max-width: 85.375em) and (max-height: 50em) {
+
+  // HEADER
+  .header {
+    &__slider-map.south &__slider-map--place { top: 46rem; right: 30rem; }
+  } 
+}
+
+/* ==========================================================================
+====================       MEDIA 1280px x 800px      ========================
+===========================================================================*/
+
+@media (max-width: 80em) and (max-height: 50em) {
+
+  .header {
+    &__slider-info { right: 3rem; bottom: 9.5rem; }
+    &__slider-info--title { font-size: 5rem; }
+    &__arrows { bottom: 2.5rem; left: 14rem; }
+    &__dots-box { inline-size: 15rem; }
+    &__dots {right: 3.3rem; }
+  }
+}
+
+
+/* ==========================================================================
+====================       MEDIA 1280px x 780px      ========================
+===========================================================================*/
+
+@media (max-width: 80em) and (max-height: 48.75em) {
+
+  // HEADER
+  .header {
+    &__location { display: none; }
+    &__aside { gap: 2rem; }
+    &__slider-map { right: -35rem; }
+    &__slider-map svg { inline-size: 65%; }
+    &__slider-map.north &__slider-map--place { top: 22.4rem; right: 78.2rem; }
+    &__slider-map.south &__slider-map--place { top: 38.2rem; right: 55rem; }
+    &__slider-map.west &__slider-map--place { top: 28.4rem; right: 64.3rem; }
+    &__slider-map.east &__slider-map--place { top: 31.3rem; right: 58.6rem; }
+  } 
+}
+
+/* ==========================================================================
+====================       MEDIA 1260px x 1366px      ========================
+===========================================================================*/
+
+@media (max-width: 78.75em) and (max-height: 85.375em) {
+
+  // HEADER
+  .header {
+    &__dots-box { inline-size: 13rem; }
+  }
+}
+
+/* ==========================================================================
+====================       MEDIA 1000px x 1366px      ========================
+===========================================================================*/
+
+@media (max-width: 60.25em) and (max-height: 85.375em) {
+
+  // HEADER
+  .header {
+    &__slider-map { right: -35rem; }
+    &__slider-map svg { inline-size: 65%; }
+    &__slider-map.north &__slider-map--place { top: 22.4rem; right: 78.2rem; }
+    &__slider-map.south &__slider-map--place { top: 38.2rem; right: 55rem; }
+    &__slider-map.west &__slider-map--place { top: 28.4rem; right: 64.3rem; }
+    &__slider-map.east &__slider-map--place { top: 31.3rem; right: 58.6rem; }
+    &__slider-map--place { font-size: 1.2rem; }
+    &__logo { inline-size: 10rem; }
+    &__logo img { inline-size: 100%; }
+    &__title { font-size: 12rem; }
+    &__slider-info--text { font-size: 3rem; margin-block-end: 0; }
+    &__slider-info--title { font-size: 6rem; margin-block-end: 1.8rem; }
+    &__dots-box { inline-size: 3rem; }
+    &__dots-name { display: none; }
+    &__arrows { bottom: 2.5rem; left: 14rem; }
+  }
+
+  // HEADLINE-LEFT
+  .headline-left { font-size: 1.6rem; line-height: 1; }
+
+  // SLIDER_ITEM
+  .slider-item {
+    &__info-title { font-size: 5rem; line-height: 1; margin-block-end: 2.5rem; }
+    &__info-text { font-size: 2.5rem; line-height: 1; margin-block-end: 1rem; }
+  }
   
 }
 
 /* ==========================================================================
-========================       MEDIA 1200px      ============================
+====================       MEDIA 1150px x 670px      ========================
 ===========================================================================*/
 
-@media (max-width: 1200px) {
-  
-}
+@media (max-width: 71.875em) and (max-height: 41.875em) {
 
-/* ==========================================================================
-========================       MEDIA 1100px      ============================
-===========================================================================*/
+  // HEADER
+  .header {
+    &__dots { gap: 3rem; bottom: 1.8rem; }
+    &__dots-number { font-size: 1.8rem; }
+    &__dots-box { inline-size: 2rem; }
+    &__slider-info { bottom: 6.5rem; }
+    &__slider-info--text { font-size: 2rem; font-weight: 600; }
+    &__slider-info--title { font-size: 3.5rem; }
+    &__slider-map { right: -60rem; top: -10rem; }
+    &__slider-map svg { inline-size: 40%; }
+    &__slider-map.north &__slider-map--place { top: 23.1rem; right: 86.2rem; }
+    &__slider-map.south &__slider-map--place { top: 32.8rem; right: 72rem; }
+    &__slider-map.west &__slider-map--place { top: 26.7rem; right: 78.3rem; }
+    &__slider-map.east &__slider-map--place { top: 28.4rem; right: 74.6rem; }
+    &__slider-map--place { letter-spacing: 0; }
+    &__dots-name { display: none; }
+    &__logo { inline-size: 7rem; }
+  }
 
-@media (max-width: 1100px) {
+  // HEADLINE-LEFT
+  .headline-left { font-size: 1.2rem; }
 
-}
-
-
-/* ==========================================================================
-========================       MEDIA 1000px      ============================
-===========================================================================*/
-
-@media (max-width: 1000px) {
-
-}
-
-/* ==========================================================================
-=========================       MEDIA 940px      ============================
-===========================================================================*/
-
-@media (max-width: 940px) {
-
-}
-
-/* ==========================================================================
-=========================       MEDIA 900px      ============================
-===========================================================================*/
-
-@media (max-width: 900px) {
-
-}
-
-/* ==========================================================================
-=========================       MEDIA 850px      ============================
-===========================================================================*/
-
-@media (max-width: 850px) {
-
+  // SLIDER-ARROW
+  .slider-arrow { top: 2rem; right: 2rem; }
 }
 
 /* ==========================================================================

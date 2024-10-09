@@ -9,7 +9,8 @@
   align-items: center;
   justify-content: center;
   gap: 2rem;
-  animation: slideToLeft 1.5s ease backwards;
+  
+	&.animate { animation: slideToLeft 1.5s ease backwards; }
   
   &__prev,
   &__next {
@@ -39,7 +40,12 @@
 	position: relative;
 	display: inline-block;
 	font-weight: 400;
-	animation: comeIn .8s ease-out .2s backwards;
+	
+	&.animate { 
+		animation: comeIn .8s ease-out .2s backwards;
+
+		&::before { animation: slideToRight .8s ease-out 1.6s backwards; }
+	}
 
 	&::before {
 		content: "";
@@ -49,7 +55,35 @@
 		background-color: $colorWhite;
 		left: 0;
 		top: 50%;
-		animation: slideToRight .8s ease-out 1.6s backwards;
+	}
+}
+
+.headline-right {
+	font-size: 2.2rem;
+	line-height: 1.45;
+	letter-spacing: .73rem;
+	text-transform: uppercase;
+	opacity: 0.5;
+	padding-inline-end: 10.3rem;
+	position: relative;
+	display: inline-block;
+	font-weight: 400;
+	margin-block-end: .8rem;
+	
+	&.animate {
+		animation: comeIn .8s ease-out .2s backwards;
+
+		&::before { animation: slideToLeft .8s ease-out 1.6s backwards; }
+	}
+
+	&::before {
+		content: "";
+		position: absolute;
+		inline-size: 8rem;
+		block-size: .1rem;
+		background-color: $colorWhite;
+		right: 0;
+		top: 50%;
 	}
 }
 
@@ -63,7 +97,8 @@
 		color: rgba($colorWhite, 0.02);
 		display: inline-block;
     margin-inline-start: -5rem;
-		animation: comeIn .8s ease-out .2s backwards;
+		
+		&.animate { animation: comeIn .8s ease-out .2s backwards; }
 	}
 
 	h2 {
@@ -73,7 +108,12 @@
 		top: -3.2rem;
 		right: -1.5rem;
 		color: $colorWhite;
-		animation: slideToLeft .8s ease-out .8s backwards;
+		
+		&.animate {
+			animation: slideToLeft .8s ease-out .8s backwards;
+
+			&::after { animation: slideToRight .8s ease-out 1.6s backwards; }
+		}
 
 		&::after {
 			content: "";
@@ -83,7 +123,6 @@
 			height: .1rem;
 			width: 8rem;
 			background-color: $colorAccent;
-			animation: slideToRight .8s ease-out 1.6s backwards;
 		}
 	}
 }
@@ -98,7 +137,8 @@
 		font-weight: 800;
 		font-size: 4rem;
 		padding-inline-end: 1rem;
-		animation: slideToTop .8s ease-out .8s backwards;
+		
+		&.animate { animation: slideToTop .8s ease-out .8s backwards; }
 
 		span { font-weight: 100; }
 	}
@@ -140,6 +180,130 @@
 			block-size: 2.1rem;
 			right: 1.7rem;
 		}
+	}
+}
+
+//================ Side image component =====================
+
+.right-image {
+  position: absolute;
+  right: 0;
+  top: 7%;
+  
+	&.animate { animation: slideToLeft .8s ease 2.8s backwards; }
+
+	&.bottom-end {
+		bottom: -7%;
+		top: auto;
+	}
+}
+
+//================ Description component =====================
+
+.descr {
+	display: inline-block;
+	padding-inline-start: .5rem;
+	margin-inline-start: 13.2rem;
+
+  &__head {
+		font-weight: 800;
+		font-size: 4rem;
+		
+		&.animate { animation: slideToTop .8s ease-out .8s backwards; }
+
+    img {
+      padding-inline-start: 2.4rem;
+      display: inline-block;
+			
+			&.animate { animation: comeIn .8s ease-out 1.6s backwards; }
+    }
+
+    span {
+			font-weight: 100;
+
+      img {
+        padding-inline-start: 0;
+        margin-block-end: -1rem;
+        margin-inline-end: -3.2rem;
+
+				&.animate {
+					&:nth-child(1) {animation: slideToLeft .8s ease 2s backwards;}
+					&:nth-child(2) {animation: slideToLeft .8s ease 2.1s backwards;}
+					&:nth-child(3) {animation: slideToLeft .8s ease 2.2s backwards;}
+					&:nth-child(4) {animation: slideToLeft .8s ease 2.3s backwards;}
+					&:nth-child(5) {animation: slideToLeft .8s ease 2.4s backwards;}
+				}				
+      }
+    }
+
+    &-shop {
+      max-inline-size: 34rem;
+      margin-block-end: 6.4rem;
+    }
+  }
+}
+
+//================ Custom input component =====================
+
+.quantity {
+	display: inline-block;
+
+	input {
+		inline-size: 4.5rem;
+		block-size: 4.2rem;
+		display: block;
+		padding: 0;
+		margin: 0;
+		padding-inline-start: 2rem;
+		background-color: transparent;
+		border: none;
+		color: $colorWhite;
+		font-size: inherit;
+		font-weight: inherit;
+		font-family: inherit;
+
+		&:focus { outline: 0; }
+	}
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+	appearance: none;
+	margin: 0;
+}
+
+
+
+.quantity-nav {
+	float: left;
+	position: static;
+	block-size: 4.2rem;
+}
+
+.quantity-button {
+	position: relative;
+	cursor: pointer;
+	inline-size: 2rem;
+	text-align: center;
+	color: $colorAccent;
+	font-size: 2.7rem;
+	line-height: .85;
+	transform: translateX(-100%);
+	user-select: none;
+	font-weight: 400;
+
+	&.quantity-up {
+		position: absolute;
+		block-size: 50%;
+		top: 4.5rem;
+		right: -2.5rem;
+	}
+
+	&.quantity-down {
+		position: absolute;
+		top: 4.5rem;
+		block-size: 50%;
+		right: 0;
 	}
 }
 

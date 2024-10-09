@@ -15,7 +15,10 @@
     background-position: center;
     margin-inline: auto;
     position: relative;
-    animation: slideToTop 1.2s ease .5s backwards;
+    
+    &.animate {
+      animation-duration: slideToTop 1.2s ease .5s backwards;
+    }
 
     &-coordinates {
       position: absolute;
@@ -29,7 +32,10 @@
       right: -2%;
       writing-mode: tb-rl;
       height: 50rem;
-      animation: makeVisible 2s ease 2.7s backwards;
+      
+      &.animate {
+        animation: makeVisible 2s ease 2.7s backwards;
+      }
     }
   }
 
@@ -201,7 +207,10 @@
 .surf__dots--hawaii {
   top: 53%;
   left: 0;
-  animation: fadeIn .8s ease 2.5s backwards;
+  
+  &.animate {
+    animation: fadeIn .8s ease 2.5s backwards;
+  }
 
   .surf__content {
     left: 14.5rem;
@@ -219,19 +228,29 @@
 .surf__dots--california {
   top: 44%;
   left: 11%;
-  animation: fadeIn .8s ease 2.4s backwards;
+
+  &.animate {
+    animation: fadeIn .8s ease 2.4s backwards;
+  }
 }
 
 .surf__dots--dominikana {
   top: 50%;
   left: 27%;
-  animation: fadeIn .8s ease 2.3s backwards;
+
+  &.animate {
+    animation: fadeIn .8s ease 2.3s backwards;
+  }
 }
 
 .surf__dots--brasil {
   top: 78%;
   left: 34%;
-  animation: fadeIn .8s ease 2.2s backwards;
+
+  &.animate {
+    animation: fadeIn .8s ease 2.2s backwards;
+  }
+  
 
   .surf__content {
     left: 12.5rem;
@@ -244,7 +263,11 @@
 .surf__dots--france {
   top: 34%;
   left: 45%;
-  animation: fadeIn .8s ease 2.1s backwards;
+
+  &.animate {
+    animation: fadeIn .8s ease 2.1s backwards;
+  }
+  
 
   .surf__content {
     left: 17.7rem;
@@ -264,19 +287,28 @@
 .surf__dots--africa {
   top: 86%;
   left: 53%;
-  animation: fadeIn .8s ease 2s backwards;
+
+  &.animate {
+    animation: fadeIn .8s ease 2s backwards;
+  }
 }
 
 .surf__dots--philippines {
   top: 61%;
-  right: 31%;
-  animation: fadeIn .8s ease 1.9s backwards;
+  right: 31%
+  ;
+  &.animate {
+    animation: fadeIn .8s ease 1.9s backwards;
+  }
 }
 
 .surf__dots--australia {
   bottom: 18%;
   right: 8%;
-  animation: fadeIn .8s ease 1.8s backwards;
+
+  &.animate {
+    animation: fadeIn .8s ease 1.8s backwards;
+  }
 
   .surf__content {
     left: -3.5rem;
@@ -289,11 +321,4 @@
   &.active {
     .surf__content { display: block; }
   }
-}
-
-.surf__map-pin {
-  position: absolute;
-  right: 0;
-  top: 7%;
-  animation: slideToLeft .8s ease 2s backwards;
 }

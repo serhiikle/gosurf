@@ -1,6 +1,23 @@
 .footer {
+  text-transform: uppercase;
 
-  &__wrapper {
-    padding-block: 40px;
+  .holder__path-btn {
+    margin-inline-start: 0;
+
+    span {
+      padding: 1.7rem 1.7rem 1.5rem;
+
+      &::after { display: none; }
+    }
+  }
+
+  .copy {
+    font-weight: 300;
+    font-size: 1.2rem;
+    line-height: 1.17;
+    text-align: center;
+    letter-spacing: .2rem;
+    color: rgba($colorWhite, 0.5);
+    padding: 2.4rem 0 3.7rem;
   }
 }

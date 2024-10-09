@@ -29,7 +29,7 @@ getDate('.year');
 
 /* Slider */
 
-function sliderCarousel(container) {
+function sliderCarousel(container, dots) {
   const sliderContainer = document.querySelector(container);
   const slider = sliderContainer.querySelector('.slider');
   const sliderBtnPrev = sliderContainer.querySelector('.slider-arrow__prev');
@@ -42,38 +42,39 @@ function sliderCarousel(container) {
     const sliderItems = slider.querySelectorAll('.slider-item');
     if (direction === 'next') slider.appendChild(sliderItems[0]);
     if (direction === 'prev') slider.prepend(sliderItems[sliderItems.length - 1]);
-
-    // if (container === '.surf') {
-    //   sliderItems.forEach(item => {
-    //     item.classList.remove('active');
-    //   });
-    //   sliderItems[1].classList.add('active');
-    // }
   }
-  
-  sliderDotsItems[0].classList.add('active');
-  
-  function dotActive() {
-    sliderDotsItems.forEach((dot) => {
-      dot.classList.remove('active');
-    });
-    sliderDotsItems[counterDots].classList.add('active');
+
+  if (dots) {
+    sliderDotsItems[0].classList.add('active');
+
+    function dotActive() {
+      sliderDotsItems.forEach((dot) => {
+        dot.classList.remove('active');
+      });
+      sliderDotsItems[counterDots].classList.add('active');
+    }
   }
   
   sliderBtnNext.addEventListener('click', () => {
     showSlider('next');
-    counterDots < sliderDotsItems.length - 1 ? counterDots++ : counterDots = 0;
-    dotActive();
+    if (dots) {
+      counterDots < sliderDotsItems.length - 1 ? counterDots++ : counterDots = 0;
+      dotActive();
+    }
   });
   
   sliderBtnPrev.addEventListener('click', () => { 
     showSlider('prev');
-    counterDots <= 0 ? counterDots = sliderDotsItems.length - 1 : counterDots--;
-    dotActive();
+    if(dots) {
+      counterDots <= 0 ? counterDots = sliderDotsItems.length - 1 : counterDots--;
+      dotActive();
+    }
   });
 };
 
-sliderCarousel('.header');
+sliderCarousel('.header', true);
+sliderCarousel('.travel', false);
+sliderCarousel('.sleep', false);
 
 //slider=========================================
 
@@ -115,23 +116,6 @@ function slider(container) {
     });
   });
 
-  // function showDots() {
-  //   const {position} = itemsInfo;
-  //   sliderDotsItems.forEach(dot => {
-  //     dot.addEventListener('click', () => {
-  //       position.current = +dot.dataset.dot;
-  //       dot.classList.remove('active');
-  //       console.log(position.current)
-  //       showSlider();
-  //       sliderDotsItems[position.current].classList.add('active');
-  //     });
-  //   });
-  //   console.log(position.current);
-    
-  // }
-
-  // showDots()
-
   function showSlider() {
     const {position, elementWidth, offset} = itemsInfo;
 
@@ -141,26 +125,6 @@ function slider(container) {
     });
     sliderItems[position.current].classList.add('active');
   }
-
-  // function showSlider(direction) {
-  //   const {position, elementWidth, offset} = itemsInfo;
-
-  //   if(direction === 'next') {
-  //     slideWrapper.style.transform = `translateX(-${position.current * (elementWidth + offset)}px)`;
-  //     sliderItems.forEach(slider => {
-  //       slider.classList.remove('active');
-  //     });
-  //     sliderItems[position.current].classList.add('active');
-  //   } else if(direction === 'prev') {
-  //     slideWrapper.style.transform = `translateX(-${position.current * (elementWidth + offset)}px)`;
-  //     sliderItems.forEach(slider => {
-  //       slider.classList.remove('active');
-  //     });
-  //     sliderItems[position.current].classList.add('active');
-  //   } else {
-  //     slideWrapper.style.transform = `translateX(-${position.current * (elementWidth + offset)}px)`;
-  //   }
-  // }
 
   sliderBtnNext.addEventListener('click', () => {
     const {position} = itemsInfo;
@@ -181,152 +145,140 @@ function slider(container) {
 
 slider('.surf');
 
-/*
-const slider = (function(){
-	
-	//const
-  const sliderContainer = document.querySelector('.surf');
-	const slider = document.querySelector('.slider');
-  const sliderBtnPrev = sliderContainer.querySelector('.slider-arrow__prev');
-  const sliderBtnNext = sliderContainer.querySelector('.slider-arrow__next');
-  const sliderDotsItems = sliderContainer.querySelectorAll('.dots-item');
-  const sliderItems = sliderContainer.querySelectorAll('.slider-item');
-	const elements = document.querySelectorAll(".slider-content__item"); // обертка для слайда
 
-  console.log(sliderContainer);
-  console.log(slider);
-  console.log(sliderBtnPrev);
-  console.log(sliderBtnNext);
-  console.log(sliderDotsItems);
-  console.log(sliderItems);
-	
-	// data
-	const itemsInfo = {
-		offset: 0, // смещение контейнера со слайдами относительно начальной точки (первый слайд)
-		position: {
-			current: 0, // номер текущего слайда
-			min: 0, // первый слайд
-			max: sliderItems.length - 1 // последний слайд	
-		},
+// Custom input
 
-		update: function(value) {
-			this.position.current = value;
-			this.offset = -value;
-		},
-		reset: function() {
-			this.position.current = 0;
-			this.offset = 0;
-		}	
-	};
+function customInput(container) {
+  const containerEl = document.querySelector(container);
+  const sumValue = containerEl.querySelectorAll('.sum');
+  const btnUp = containerEl.querySelectorAll('.quantity-up');
+  const btnDown = containerEl.querySelectorAll('.quantity-down');
+  const nights = containerEl.querySelectorAll('.nights');
+  const guests = containerEl.querySelectorAll('.guests');
 
-	const controlsInfo = {
-		prevButtonDisabled: true,
-		nextButtonDisabled: false
-	};
+  const perNight = 55;
+  const perGuest = 25;
+  const min = 1;
+  const max = 9;
+  let guestValue = 4;
+  let nightValue = 3;
+  let sum = 0
 
-	// Инициализация слайдера
-	function init(props) {
-		let {position, offset} = itemsInfo;
-		
-		// Проверка наличия элементов разметки
-		if (sliderContainer && slider && sliderBtnPrev && sliderBtnNext && sliderDotsItems && sliderItems) {
-			if (props && props.currentItem) {
-				if (parseInt(props.currentItem) >= position.min && parseInt(props.currentItem) <= position.max ) {
-					position.current = props.currentItem;
-					offset = - props.currentItem;	
-				}
-      }
-			
-			_updateControlsInfo();
-			_createControls();
-			_render();	
-		} else {
-			console.log("Разметка слайдера задана неверно. Проверьте наличие всех необходимых классов 'slider/slider-content/slider-wrapper/slider-content__item'");
-		}
-	}
 
-	// Обновить свойства контролов
-	function _updateControlsInfo() {
-		const {current, min, max} = itemsInfo.position;
-		controlsInfo.prevButtonDisabled = current > min ? false : true;
-		controlsInfo.nextButtonDisabled = current < max ? false : true;
-	}
+  function init() {
+    nights.forEach(night => {
+      night.value = nightValue;
+    });
+  
+    guests.forEach(guest => {
+      guest.value = guestValue;
+    });
+  
+    sum = nightValue * perNight + guestValue * perGuest;
+    sumValue.forEach(elSum => {
+      elSum.textContent = sum;
+    });
+  }
 
-	// Создание элементов разметки
-	function _createControls() {
-    
-		createArrows();
-		createDots();
+  init();
+  
+  function calculate() {
+    sum = nightValue * perNight + guestValue * perGuest;
+    sumValue.forEach(elSum => {
+      elSum.textContent = sum;
+    });
+  }
 
-		function createArrows() {
-			sliderBtnPrev.addEventListener("click", () => updateItemsInfo(itemsInfo.position.current - 1))
-			sliderBtnNext.addEventListener("click", () => updateItemsInfo(itemsInfo.position.current + 1))
-		}
+  function renderNights() {
+    nights.forEach(night => {
+      night.value = nightValue;
+    });
+  }
 
-		function createDots() {		
-			sliderDotsItems.forEach((dot, i) => {
-        dot.addEventListener("click", function() {
-					updateItemsInfo(i);
-				});
-      });
-		}
-	}
+  function renderGuests() {
+    guests.forEach(guest => {
+      guest.value = guestValue;
+    });
+  }
 
-	// Задать класс для контролов (buttons, arrows)
-	function setClass(options) {
-		if (options) {
-			options.forEach(({element, className, disabled}) => {
-				if (element) {
-					disabled ? element.classList.add(className) : element.classList.remove(className)	
-				} else {
-					console.log("Error: function setClass(): element = ", element);
-				}
-			})
-		}
-	}
+  function checkInputClass(input) {
+    const inputParent = input.parentNode.closest('div.quantity');
+    const inputClass = inputParent.querySelector('input').classList[0];
+    return inputClass;
+  }
 
-	// Обновить значения слайдера
-	function updateItemsInfo(value) {
-		itemsInfo.update(value);
-		_slideItem(true);	
-	}
+  function incrValue(classIn) {
+    if (classIn === 'nights') {
+      nightValue >= max ? nightValue = max : ++nightValue;
+      renderNights();
+    }
+    if (classIn === 'guests') {
+      guestValue >= max ? guestValue = max : ++guestValue;
+      renderGuests();
+    }
+    calculate();
+  }
 
-	// Отобразить элементы
-	function _render() {
-		const {prevButtonDisabled, nextButtonDisabled} = controlsInfo;
-		let controlsArray = [
-			{element: sliderBtnNext, className: "d-none", disabled: prevButtonDisabled},
-			{element: sliderBtnPrev, className: "d-none", disabled: nextButtonDisabled}
-		];
-		
-		// Отображаем/скрываем контроллы
-		setClass(controlsArray);
+  function decrValue(classIn) {
+    if (classIn === 'nights') {
+      nightValue <= min ? nightValue = min : --nightValue;
+      renderNights();
+    }
+    if (classIn === 'guests') {
+      guestValue <= min ? guestValue = min : --guestValue;
+      renderGuests();
+    }
+    calculate();
+  }
 
-		// Передвигаем слайдер
-		slider.style.transform = `translateX(${itemsInfo.offset*100}%)`;	
-		
-		// Задаем активный элемент для точек (dot)
-		if (controlsInfo.dotsEnabled) {
-			if (document.querySelector(".dot--active")) {
-				document.querySelector(".dot--active").classList.remove("dot--active");	
-			}
-			dotsWrapper.children[itemsInfo.position.current].classList.add("dot--active");
-		}
-	}
+  btnUp.forEach(btn => {
+    btn.addEventListener('click', e => {
+      const classInput = checkInputClass(e.target);
+      incrValue(classInput);
+    });
+  });
 
-	// Переместить слайд
-	function _slideItem() {
-		_updateControlsInfo();
-		_render();
-	}
+  btnDown.forEach(btn => {
+    btn.addEventListener('click', e => {
+      const classInput = checkInputClass(e.target);
+      decrValue(classInput);
+    });
+  });
+}
 
-	// Доступные методы
-	return {init};
-}())
+customInput('.sleep');
 
-slider.init({
-	currentItem: 0,
+// Surfboard
+
+function showDesc() {
+  const circles = document.querySelectorAll('.surfboard__box-circle');
+  circles.forEach(circle => {
+    circle.addEventListener('click', () => {
+      circle.classList.toggle('minus');
+    });
+  });
+}
+
+showDesc();
+
+// Animation to scroll
+
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('animate');
+      return;
+    }
+    //remove animation  
+    // entry.target.classList.remove('animate');
+  });
 });
+
+// Get multiple elements instead of a single one using "querySelectorAll"
+const squares = document.querySelectorAll('.anim');
+
+// Loop over the elements and add each one to the observer
+squares.forEach((element) => observer.observe(element));
 
 /* Mobile menu */
 
