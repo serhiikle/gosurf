@@ -1,5 +1,13 @@
 //================ Slider conponents =====================
 
+.anim {
+	visibility: hidden;
+
+	&.animate {
+		visibility: visible;
+	}
+}
+
 .slider-arrow {
   position: absolute;
   top: 3rem;
@@ -191,11 +199,7 @@
   top: 7%;
   
 	&.animate { animation: slideToLeft .8s ease 2.8s backwards; }
-
-	&.bottom-end {
-		bottom: -7%;
-		top: auto;
-	}
+	&.bottom-end { bottom: -7%; top: auto; }
 }
 
 //================ Description component =====================

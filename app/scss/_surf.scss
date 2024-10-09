@@ -13,11 +13,12 @@
     background-image: url(../images/surf-map.png);
     background-repeat: no-repeat;
     background-position: center;
+    background-size: 100%;
     margin-inline: auto;
     position: relative;
     
     &.animate {
-      animation-duration: slideToTop 1.2s ease .5s backwards;
+      animation: slideToTop 1.2s ease .5s backwards;
     }
 
     &-coordinates {
@@ -31,7 +32,7 @@
       transform: translateY(-50%) rotate(-180deg);
       right: -2%;
       writing-mode: tb-rl;
-      height: 50rem;
+      inline-size: 50rem;
       
       &.animate {
         animation: makeVisible 2s ease 2.7s backwards;
@@ -229,6 +230,12 @@
   top: 44%;
   left: 11%;
 
+  .surf__content {
+    transform: translateX(-30%);
+
+    &::after { left: 8.6rem; }
+  }
+
   &.animate {
     animation: fadeIn .8s ease 2.4s backwards;
   }
@@ -271,7 +278,7 @@
 
   .surf__content {
     left: 17.7rem;
-    bottom: -110rem;
+    bottom: -11rem;
 
     &::after {
       border-top: solid 1.1rem transparent;

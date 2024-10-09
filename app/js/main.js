@@ -90,7 +90,7 @@ function slider(container) {
 
   itemsInfo = {
     offset: 0,
-    elementWidth: 350,
+    elementWidth: 320,
     position: {
       min: 0,
       max: sliderItems.length - 1,

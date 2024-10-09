@@ -26,6 +26,22 @@
 }
 
 /* ==========================================================================
+========================       MEDIA 1400px      ============================
+===========================================================================*/
+
+@media (max-width: 87.5em) {
+
+  // SURF
+  .surf {
+    padding: 14.6rem 0 20rem;
+
+    &__slider-container { padding-inline-start: 25%; }
+    &__box-inner { min-block-size: 65rem; }
+    &__box-location { letter-spacing: 0.5rem; }
+  }
+}
+
+/* ==========================================================================
 ====================       MEDIA 1366px x 800px      ========================
 ===========================================================================*/
 
@@ -35,6 +51,19 @@
   .header {
     &__slider-map.south &__slider-map--place { top: 46rem; right: 30rem; }
   } 
+}
+
+/* ==========================================================================
+========================       MEDIA 1300px      ============================
+===========================================================================*/
+
+@media (max-width: 81.25em) {
+
+  // SHOP
+  .shop {
+    // &__extras { margin-inline-start: 5rem; display: flex; align-items: center; flex-direction: column;}
+    // &__extras-inner { flex-wrap: wrap; align-items: center; justify-content: center; }
+  }
 }
 
 /* ==========================================================================
@@ -85,10 +114,109 @@
 }
 
 /* ==========================================================================
+========================       MEDIA 1260px      ============================
+===========================================================================*/
+
+@media (max-width: 78.75em) {
+
+  // SURF
+  .surf {
+    &__map-coordinates { right: 1%; }
+  }
+}
+
+/* ==========================================================================
+========================       MEDIA 1200px      ============================
+===========================================================================*/
+
+@media (max-width: 75em) {
+
+  // SURF
+  .surf { &__slider-container { padding-inline-start: 15%; } }
+
+  // HOLDER
+  .holder {
+    &__item-descr > img { inline-size: 40%; }
+    &.travel { min-block-size: auto; }
+    &__item-info { gap: 2rem; flex-wrap: wrap; }
+    &__path-title { font-size: 3rem; font-weight: 600; padding-inline-start: 3rem; }
+    &__path-subtitle { letter-spacing: 0.5rem; font-size: 1.2rem; }
+  }
+
+  // DESCR
+  .descr { padding-inline-start: 0; margin-inline-start: 3rem; }
+  .descr__head { font-size: 2rem; }
+  .descr__head img { inline-size: 30%; margin-block-start: -2rem; }
+  .descr__head span img { width: 25%; }
+
+  // HEADLINE RIGHT
+  .headline-right { font-size: 1rem; letter-spacing: 0.3rem; padding-inline-end: 4rem; }
+  .headline-right::before { inline-size: 3rem; }
+
+  // RIGHT IMAGE
+  .right-image.bottom-end { bottom: -22%; }
+
+  // SHOP
+  .shop__item-info .holder__path-btn { text-align: left; }
+}
+
+/* ==========================================================================
+====================       MEDIA 1150px x 670px      ========================
+===========================================================================*/
+
+@media (max-width: 71.875em) and (max-height: 41.875em) {
+
+  // HEADER
+  .header {
+    &__dots { gap: 3rem; bottom: 1.8rem; }
+    &__dots-number { font-size: 1.8rem; }
+    &__dots-box { inline-size: 2rem; }
+    &__slider-info { bottom: 6.5rem; }
+    &__slider-info--text { font-size: 2rem; font-weight: 600; }
+    &__slider-info--title { font-size: 3.5rem; }
+    &__slider-map { right: -60rem; top: -10rem; }
+    &__slider-map svg { inline-size: 40%; }
+    &__slider-map.north &__slider-map--place { top: 23.1rem; right: 86.2rem; }
+    &__slider-map.south &__slider-map--place { top: 32.8rem; right: 72rem; }
+    &__slider-map.west &__slider-map--place { top: 26.7rem; right: 78.3rem; }
+    &__slider-map.east &__slider-map--place { top: 28.4rem; right: 74.6rem; }
+    &__slider-map--place { letter-spacing: 0; }
+    &__dots-name { display: none; }
+    &__logo { inline-size: 7rem; }
+    &__menu-list a img { width: 50%; }
+    &__menu-list { gap: 2rem; }
+    &__aside { padding-block-end: 1rem; }
+    &__date { font-size: 1rem; }
+    &__date .num { font-weight: 600; font-size: 4rem; }
+  }
+
+  // HEADLINE-LEFT
+  .headline-left { font-size: 1.2rem; }
+
+  // SLIDER-ARROW
+  .slider-arrow { top: 2rem; right: 2rem; }
+}
+
+/* ==========================================================================
+====================       MEDIA 1050px     ========================
+===========================================================================*/
+
+@media (max-width: 65.625em) {
+
+  // SURF
+  .surf {
+    &__slider-container { padding-inline-start: 1%; }
+    &__dots--brasil { top: 73%; }
+    &__dots--africa { top: 79%; }
+    &__dots--philippines { top: 57%; }
+  }
+}
+
+/* ==========================================================================
 ====================       MEDIA 1000px x 1366px      ========================
 ===========================================================================*/
 
-@media (max-width: 60.25em) and (max-height: 85.375em) {
+@media (max-width: 62.5em) and (max-height: 85.375em) {
 
   // HEADER
   .header {
@@ -121,83 +249,322 @@
 }
 
 /* ==========================================================================
-====================       MEDIA 1150px x 670px      ========================
+====================       MEDIA 900px     ========================
 ===========================================================================*/
 
-@media (max-width: 71.875em) and (max-height: 41.875em) {
+@media (max-width: 56.25em) {
 
-  // HEADER
+  // SURF
+  .surf {
+
+    &__box-inner { inline-size: 37rem; }
+  }
+
+  // SHOP
+  .shop__item-inner { padding-inline-end: 1rem; }
+}
+
+/* ==========================================================================
+====================       MEDIA 860px     ========================
+===========================================================================*/
+
+@media (max-width: 53.75em) {
+
+  // TITLE
+  .title span { font-size: 13rem; }
+  .title h2 { font-size: 5rem; }
+
+  // SUBTITLE HEAD
+  .subtitle__head { font-weight: 600; font-size: 3rem; }
+
+  // HEADLINE LEFT
+  .headline-left { font-size: 1rem; }
+
+  // RIGHT LEFT
+  .right-image { right: -6rem; }
+  .right-image img { inline-size: 60%; }
+
+  // SUBTITILE
+  .subtitle { padding-inline-end: 2rem; }
+
+  // SURF
+  .surf {
+    padding: 9.6rem 0 13rem;
+
+    &__subtitle { padding-block-end: 0; }
+    &__content { inline-size: 20.5rem; padding: 2.2rem 1.8rem; transform: translateX(0); }
+    &__dots--brasil { top: 67%; }
+    &__dots--africa { top: 76%; }
+    &__dots--australia { bottom: 27%; }
+    &__dots--philippines { z-index: 10; }
+    &__dots--california { z-index: 10; }
+    &__dots--france { top: 40%; }
+    &__map { min-block-size: auto; }
+    &__dots-container { min-block-size: 50rem; }
+    &__map-coordinates { letter-spacing: 0.5rem; }
+    &__slider { padding-block-start: 6rem; }
+  }
+
+  // DOTS
+  .dots-item { &.active { .surf__content { display: none; } } } 
+
+  // HOLDER
+  .holder {
+    margin-block-end: 0;
+    &__item-subtitle { padding-inline-end: 0rem; padding-block-start: 5.2rem; }
+    &__item { min-block-size: 70rem; background-size: 100%; }
+    &__item-descr { margin-block-end: 10rem; min-block-size: 0; padding-block-start: 10rem; background-size: 25%; }
+    &__path-title { font-size: 1.9rem; }
+    &__path { min-block-size: 14rem; margin-block-end: 2rem; }
+    &__slider { min-block-size: 124rem; }
+  }
+  // RIGHT IMAGE
+  .right-image.bottom-end { bottom: 15%; right: -7.5rem; }
+  .right-image.bottom-end.image-cup { right: -13rem; }
+
+  // SURFBOX
+  .surfboard__box--3 .surfboard__box-content { left: -30rem; }
+  .surfboard__box-content { inline-size: 20rem; font-size: 2.4rem; }
+}
+
+/* ==========================================================================
+====================       MEDIA 810px x 1150px      ========================
+===========================================================================*/
+
+@media (max-width: 50.625em) and (max-height: 71.875em) {
+
+  //HEADER
   .header {
-    &__dots { gap: 3rem; bottom: 1.8rem; }
-    &__dots-number { font-size: 1.8rem; }
-    &__dots-box { inline-size: 2rem; }
-    &__slider-info { bottom: 6.5rem; }
-    &__slider-info--text { font-size: 2rem; font-weight: 600; }
-    &__slider-info--title { font-size: 3.5rem; }
-    &__slider-map { right: -60rem; top: -10rem; }
-    &__slider-map svg { inline-size: 40%; }
-    &__slider-map.north &__slider-map--place { top: 23.1rem; right: 86.2rem; }
-    &__slider-map.south &__slider-map--place { top: 32.8rem; right: 72rem; }
-    &__slider-map.west &__slider-map--place { top: 26.7rem; right: 78.3rem; }
-    &__slider-map.east &__slider-map--place { top: 28.4rem; right: 74.6rem; }
-    &__slider-map--place { letter-spacing: 0; }
-    &__dots-name { display: none; }
-    &__logo { inline-size: 7rem; }
+    &__slider-info { right: 3rem; }
+  }
+}
+
+/* ==========================================================================
+=========================       MEDIA 810px      ============================
+===========================================================================*/
+
+@media (max-width: 50.625em) {
+
+  // SHOP
+  .shop {
+    margin-block-end: 10rem;
+
+    &__item-inner { flex-wrap: wrap; justify-content: center; gap: 15rem; }
+    &__item-info { max-inline-size: auto; inline-size: auto; }
+    &__extras { inline-size: 100%; }
+    &__item-content { flex-wrap: wrap; gap: 6rem; justify-content: center; }
+    &__extras-inner {justify-content: center; gap: 5rem;}
+    &__extras-title { text-align: center; }
+  }
+}
+
+/* ==========================================================================
+=========================       MEDIA 750px      ============================
+===========================================================================*/
+
+@media (max-width: 46.875em) {
+
+  // SURF
+  .surf {
+    &__box-inner { inline-size: 35rem; }
+  }
+
+  // BTN
+  .btn { font-size: 2rem; }
+
+  // HOLDER
+  .holder__slider {
+    min-block-size: 110rem;
+  }
+
+  // RIGHT IMAGE
+  .right-image.bottom-end { bottom: 4%; }
+
+  .surfboard__box { display: none; }
+}
+
+/* ==========================================================================
+====================       MEDIA 700px x 1000px      ========================
+===========================================================================*/
+
+@media (max-width: 43.75em) and (max-height: 62.5em) {
+
+  //HEADER
+  .header {
+    block-size: 90vh;
+
+    &__aside {block-size: 90vh;}
+    &__slider-item {block-size: 90vh;}
+    &__slider-map { right: -35rem; top: -5rem;}
+    &__slider-map.north &__slider-map--place { top: 25.4rem; right: 69.2rem; }
+  }
+}
+
+/* ==========================================================================
+=========================       MEDIA 670px      ============================
+===========================================================================*/
+
+@media (max-width: 41.875em) {
+
+  // TITLE 
+  .title span { font-size: 5rem; margin-inline-start: 0; }
+  .title h2 { font-size: 3rem; }
+  .title h2::after { top: -.3rem; width: 4rem; }
+
+  // SUBTITLE HEAD
+  .subtitle__head { font-size: 2rem; }
+
+  // HEADLINE LEFT
+  .headline-left { letter-spacing: 0.2rem; padding-inline-start: 4rem; }
+  .headline-left::before { inline-size: 3rem; }
+
+  // RIGHT IMAGE
+  .right-image { top: 2%; }
+
+  // SURF
+  .surf {
+
+    &__dots--africa { top: 70%; }
+    &__map-coordinates { inline-size: 30rem; }
+    &__dots-container { min-block-size: 40rem; }
+    &__slider { padding-block-start: 0; }
+  }
+
+  // SLIDER ARROW
+  .slider-arrow { top: -1rem; right: 5rem; gap: 1rem; }
+
+  // HOLDER
+  .holder__item { min-block-size: 55rem; }
+  .holder__slider { min-block-size: 110rem; }
+}
+
+/* ==========================================================================
+====================       MEDIA 610px x 1000px      ========================
+===========================================================================*/
+
+@media (max-width: 38.125em) and (max-height: 62.5em) {
+
+  //HEADER
+  .header {
+    
+    &__location {display: none;}
+    &__slider-info { bottom: 8.6rem; }
+    &__slider-info--text { font-size: 2rem; }
+    &__slider-info--title { font-size: 3rem; }
+    &__dots { right: 3rem; bottom: 3rem; gap: 2rem; }
+    &__slider-map svg { inline-size: 50%; }
+    &__slider-map { right: -50rem; }
   }
 
   // HEADLINE-LEFT
-  .headline-left { font-size: 1.2rem; }
-
-  // SLIDER-ARROW
-  .slider-arrow { top: 2rem; right: 2rem; }
+  .headline-left { font-size: 1rem; }
 }
 
 /* ==========================================================================
-=========================       MEDIA 820px      ============================
+=========================       MEDIA 600px      ============================
 ===========================================================================*/
 
-@media (max-width: 820px) {
+@media (max-width: 37.5em) {
+
+  // HOLDER
+  .holder {
+    
+  }
+}
+/* ==========================================================================
+=========================       MEDIA 580px      ============================
+===========================================================================*/
+
+@media (max-width: 36.25em) {
+
+  // SURF
+  .surf {
+    &__box-inner { inline-size: 33rem; min-block-size: 50rem; }
+    &__box-title { font-size: 3rem; padding: 3rem 0 0 3rem; inline-size: 100%; }
+    &__box-location { letter-spacing: .3rem; left: 3rem; font-weight: 600; }
+  }
+}
+
+/* ==========================================================================
+====================       MEDIA 460px x 1000px      ========================
+===========================================================================*/
+
+@media (max-width: 28.75em) and (max-height: 62.5em) {
+
+  //HEADER
+  .header {
+    .header__slider-map svg { inline-size: 40%; }
+    &__slider-map { right: -60rem; }
+  }
+
+  .slider-arrow { right: 3rem; }
+
+  // HOLDER
+  .holder__item { min-block-size: 45rem; }
 
 }
 
 /* ==========================================================================
-=========================       MEDIA 768px      ============================
+=========================       MEDIA 450px      ============================
 ===========================================================================*/
 
-@media (max-width: 768px) {
+@media (max-width: 28.125em) {
 
+  // SURF
+  .surf {
+
+    &__dots-container { min-block-size: 30rem; }
+    &__map-coordinates { letter-spacing: 0.3rem; font-size: 1.2rem; inline-size: 21rem;}
+    &__circle { inline-size: 1.2rem; block-size: 1.2rem; }
+  }
+
+  // SLIDER ARROW
+  .slider-arrow { gap: 0; }
+  .slider-arrow img { inline-size: 80%; }
+
+  // HOLDER
+  .holder__slider { min-block-size: 100rem; }
+
+  // RIGHT IMAGE
+  .right-image.bottom-end { bottom: -2%; }
 }
 
 /* ==========================================================================
-=========================       MEDIA 640px      ============================
+=========================       MEDIA 420px      ============================
 ===========================================================================*/
 
-@media (max-width: 640px) {
+@media (max-width: 26.25em) {
 
+  // SURF
+  .surf__box-inner { inline-size: 32.5rem; }
 }
 
 /* ==========================================================================
-=========================       MEDIA 590px      ============================
+====================       MEDIA 400px x 1000px      ========================
 ===========================================================================*/
 
-@media (max-width: 590px) {
+@media (max-width: 25em) and (max-height: 62.5em) {
 
+  //HEADER
+  .header {
+    &__logo { inline-size: 9rem; }
+    &__arrows { left: 10rem; }
+  }
 }
 
 /* ==========================================================================
-=========================       MEDIA 500px      ============================
+====================       MEDIA 360px x 1000px      ========================
 ===========================================================================*/
 
-@media (max-width: 500px) {
+@media (max-width: 22.5em) and (max-height: 62.5em) {
 
-}
+  //HEADER
+  .header {
+    block-size: 90vh;
 
-/* ==========================================================================
-=========================       MEDIA 480px      ============================
-===========================================================================*/
-
-@media (max-width: 480px) {
-
+    &__aside {block-size: 90vh;}
+    &__slider-item {block-size: 90vh;}
+  }
 }
 
 /* ==========================================================================
@@ -212,8 +579,16 @@
 =========================       MEDIA 360px      ============================
 ===========================================================================*/
 
-@media (max-width: 360px) {
+@media (max-width: 22.5em) {
 
+  // SURF
+  .surf {
+    &__box-inner { inline-size: 32rem; }
+    &__slider-container { padding-inline-start: 0%; }
+  }
+
+  // HOLDER
+  .holder__item { min-block-size: 40rem; }
 }
 
 /* ==========================================================================

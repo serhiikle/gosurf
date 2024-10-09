@@ -29,6 +29,7 @@
     &-inner {
       display: flex;
       align-items: center;
+      gap: 3rem;
       justify-content: space-between;
       padding-inline-end: 13.2rem;
     }
@@ -36,15 +37,16 @@
     &-content {
       display: flex;
       align-items: flex-end;
+      gap: 3rem;
     }
   }
 
   &__extras {
-    margin-inline-start: 12rem;
 
     &-inner {
       display: flex;
       justify-content: space-between;
+      gap: 2rem;
 
       &.animate { animation: slideToTop .8s ease-out 6.5s backwards;  }
     }
@@ -66,13 +68,7 @@
       margin-block-end: 3.5rem;
     }
 
-    &-box {
-      text-align: center;
-
-      & + .shop__extras-box {
-        margin-inline-start: 8.6rem;
-      }
-    }
+    &-box { text-align: center; }
 
     &-name {
       font-weight: 400;
